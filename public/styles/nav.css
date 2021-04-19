@@ -1,0 +1,29 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  /* vertical alignment doesn't look quite right but there are no instructions re bottom padding */
+  align-items: center; 
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: white;
+  padding: 0 1.5em;
+  /* use z-index/position fixed/scroll to get this on top if it's not already https://web.compass.lighthouselabs.ca/days/w04d1/activities/921 */
+
+}
+/* instructions say put this font on the span but this seems cleaner https://web.compass.lighthouselabs.ca/days/w04d1/activities/224 */
+div.logo {
+  font-family: "Bungee", sans-serif;
+}
+div.new-tweet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+span.weight600 {
+  font-weight: 600;
+}
+
+.fas {
+  color: red;
+}
