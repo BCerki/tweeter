@@ -8,7 +8,6 @@ section.new-tweet {
   flex-direction: row;
   justify-content: space-between;
   padding: 1em 0;
-  margin-top: 1em;
   border-top:solid 4px black;
 }
 
@@ -28,12 +27,9 @@ button {
 textarea {
   background-color: transparent;
   border: none;
-  
+  width: 100%;
 }
-.humming-about {
+
+::placeholder {
   font-weight: 600;
 }
-
-/* #tweet-text {
-
-} */
