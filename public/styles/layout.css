@@ -30,3 +30,44 @@ main {
   background-color: #f4f1ec;
   
 }
+
+section.existing-tweets {
+  width: 90%;
+  margin: auto;
+}
+
+article.tweet{
+  border: solid 4px black;
+  padding: 0.5em;
+}
+
+article.tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 0.5em;;
+}
+
+article.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 0.25em;
+}
+
+.tweet-content {
+  font-weight: 600;
+  padding: 1em 0.5em;;
+  border-bottom: solid 4px black;
+}
+
+div.handle {
+  color: lightsteelblue;
+}
+
+div.time-ago {
+  font-size: 0.75em;;
+}
+div.icons {
+  color: black;
+}

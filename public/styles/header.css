@@ -1,4 +1,4 @@
-header {
+header.avatar {
   /* Header should appear to be 400px high, so added padding and extra height to account for the section under the nav bar */
   height: 520px;
   padding-top: 120px;
