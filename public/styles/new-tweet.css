@@ -33,3 +33,7 @@ textarea {
 ::placeholder {
   font-weight: 600;
 }
+
+.limit {
+  color: red;
+}

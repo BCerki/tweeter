@@ -30,7 +30,7 @@ main {
   background-color: #f4f1ec;
   
 }
-
+/* 37min does this need to be 90 or is just doing it on main good?*/
 section.existing-tweets {
   width: 90%;
   margin: auto;
