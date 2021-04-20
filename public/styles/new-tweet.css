@@ -1,8 +1,3 @@
-section.new-tweet {
-  width: 90%;
-  margin: auto;
-}
-
 /* text area styles */
 textarea {
   background-color: transparent;
@@ -14,7 +9,7 @@ textarea {
   font-weight: 600;
 }
 
-
+/* styles for button and counter section */
 div.submission {
   display: flex;
   flex-direction: row;

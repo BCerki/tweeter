@@ -31,12 +31,6 @@ main {
   
 }
 
-section.existing-tweets {
-  /* why do i need to do width here too */
-  width: 90%;
-  margin: auto;
-}
-
 /* individual tweet styles */
 article.tweet{
   border: solid 4px black;
