@@ -30,13 +30,14 @@ main {
   background-color: #f4f1ec;
   
 }
-/* 37min does this need to be 90 or is just doing it on main good?*/
+
 section.existing-tweets {
   /* why do i need to do width here too */
   width: 90%;
   margin: auto;
 }
 
+/* individual tweet styles */
 article.tweet{
   border: solid 4px black;
   padding: 0.5em;
@@ -46,6 +47,7 @@ article.tweet:hover {
   box-shadow: 5px 5px lightsteelblue;
 }
 
+/* individual tweet header styles */
 article.tweet header {
   display: flex;
   flex-direction: row;
@@ -53,21 +55,23 @@ article.tweet header {
   padding: 0 0.5em;;
 }
 
-article.tweet footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 0.25em;
+div.handle {
+  color: lightsteelblue;
 }
 
+/* individual tweet content styles */
 .tweet-content {
   font-weight: 600;
   padding: 1em 0.5em;;
   border-bottom: solid 4px black;
 }
 
-div.handle {
-  color: lightsteelblue;
+/* individual tweet footer styles */
+article.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 0.25em;
 }
 
 div.time-ago-formatted {

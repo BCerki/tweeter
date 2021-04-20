@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+  //select the humming about text area
   $("section.new-tweet > form textarea").on('input', function () {
 
     //calculate the number of characters remaining

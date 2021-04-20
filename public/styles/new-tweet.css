@@ -3,17 +3,24 @@ section.new-tweet {
   margin: auto;
 }
 
-.submission {
+/* text area styles */
+textarea {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+}
+
+::placeholder {
+  font-weight: 600;
+}
+
+
+div.submission {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 1em 0;
   border-top:solid 4px black;
-}
-
-.counter {
-  font-family: "Bungee";
-  font-size: 0.75em;
 }
 
 button {
@@ -24,14 +31,10 @@ button {
   font-size: 0.75em;
 }
 
-textarea {
-  background-color: transparent;
-  border: none;
-  width: 100%;
-}
-
-::placeholder {
-  font-weight: 600;
+/* counter styles */
+.counter {
+  font-family: "Bungee";
+  font-size: 0.75em;
 }
 
 .limit {
