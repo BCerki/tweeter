@@ -32,6 +32,7 @@ main {
 }
 /* 37min does this need to be 90 or is just doing it on main good?*/
 section.existing-tweets {
+  /* why do i need to do width here too */
   width: 90%;
   margin: auto;
 }
@@ -39,6 +40,10 @@ section.existing-tweets {
 article.tweet{
   border: solid 4px black;
   padding: 0.5em;
+}
+
+article.tweet:hover {
+  box-shadow: 5px 5px lightsteelblue;
 }
 
 article.tweet header {
@@ -69,5 +74,8 @@ div.time-ago {
   font-size: 0.75em;;
 }
 div.icons {
-  color: black;
+  color: navy;
+}
+i.fas:hover {
+  color: goldenrod;
 }
