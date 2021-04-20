@@ -70,11 +70,12 @@ div.handle {
   color: lightsteelblue;
 }
 
-div.time-ago {
+div.time-ago-formatted {
   font-size: 0.75em;;
 }
 div.icons {
   color: navy;
+  font-size: 0.75em;
 }
 i.fas:hover {
   color: goldenrod;
