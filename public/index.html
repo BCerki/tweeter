@@ -23,11 +23,14 @@
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <script type="text/javascript" src="/scripts/stretch.js"></script>
 </head>
 
 <body>
@@ -41,6 +44,8 @@
       <i class="fas fa-angle-double-down"></i>
     </div>
   </nav>
+
+  <!-- Header that contains an avatar image and username. Everything's in a div to facilitate flexbox -->
   <header class="avatar">
     <div>
       <img src="/images/profile-hex.png">
@@ -50,25 +55,31 @@
       <h2>Your Name</h2>
     </div>
   </header>
+
   <!-- Page-specific (main) content here -->
   <main>
+
+    <!-- Section with a form for entering new tweets -->
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
+      <!-- div for error messaging associated with form validation, which will be added by client.js -->
       <div class="error"></div>
+      <!-- form for entering new tweets -->
       <form method="POST" action="/tweets">
-        <!-- <label for="tweet-text">What are you humming about?</label>--mentor suggested doing this as placeholder text instead -->
+        <!-- Mentor suggested having the text "What are you humming about"  as placeholder text instead of a label-->
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+        <!-- section for submitting new tweet including button and counter, handled by client.js and composer-char-counter.js -->
         <div class="submission">
           <button class="post-new-tweet" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
-    <!-- container for the tweets -->
+    <!-- container for the tweets, which will be added by client.js -->
     <section id="tweet-container">
-      
     </section>
 
+    <!-- stretch button to bring user back to top of screen, handled by stretch.js -->
     <button class="back-to-top"><i class="fas fa-angle-double-up"></i></button>
 
   </main>
