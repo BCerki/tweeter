@@ -1,7 +1,5 @@
 header.avatar {
-  /* Header should appear to be 400px high, so added padding and extra height to account for the section under the nav bar */
   height: 400px;
-  /* padding-top: 120px; */
   width: 100%;
   display: flex;
   flex-direction: column;

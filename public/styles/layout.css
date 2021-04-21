@@ -30,6 +30,13 @@ main {
   background-color: #f4f1ec;
   
 }
+/* style for error if submitted tweet doesn't pass validation */
+div.error {
+  color: red;
+  text-align: center;
+  font-size: 1em;
+  border: solid 2px red;
+};
 
 /* individual tweet styles */
 #tweet-container article {
@@ -53,7 +60,7 @@ article.tweet header {
   padding: 0 0.5em;
 }
 
-.avatar {
+img.avatar {
   padding-right: 0.5em;
 }
 
@@ -88,18 +95,7 @@ div.icons i:hover {
   color: goldenrod;
 }
 
-div.error {
-  color: red;
-  text-align: center;
-  font-size: 1em;
-  border: solid 2px red;
-};
-
-/* BRI delete later */
-.test {
-  border: solid 10px pink;
-}
-
+/* styles for back-to-top button */
 button.back-to-top {
   border: none;
   position: fixed;
@@ -123,4 +119,3 @@ button.back-to-top:hover {
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
-/* BRI13 min for button */

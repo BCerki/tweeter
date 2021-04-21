@@ -1,9 +1,8 @@
 
-
+/* styles for whole nav bar */
 nav {
   display: flex;
   justify-content: space-between;
-  /* vertical alignment doesn't look quite right but there are no instructions re bottom padding */
   align-items: center; 
   height: 120px;
   width: 100%;
@@ -14,7 +13,7 @@ nav {
   top: 0;
 
 }
-/* instructions say put this font on the span but this seems cleaner https://web.compass.lighthouselabs.ca/days/w04d1/activities/224 */
+
 div.logo {
   font-family: "Bungee", sans-serif;
 }
@@ -24,10 +23,12 @@ div.write-a-new-tweet{
   align-items: center;
 }
 
+/* bold style */
 span.weight600 {
   font-weight: 600;
 }
 
+/* write new tweet "button" (not a real button) styles */
 .fa-angle-double-down {
   color: red;
 }
