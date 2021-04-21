@@ -20,7 +20,7 @@ div.submission {
   border-top:solid 4px black;
 }
 
-button {
+button.post-new-tweet {
   background-color: #4056A1;
   border: none;
   color: white;

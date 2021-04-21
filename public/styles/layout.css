@@ -88,6 +88,7 @@ div.icons i:hover {
   color: goldenrod;
 }
 
+/* BRI delete later */
 .test {
   border: solid 10px pink;
 }
@@ -114,3 +115,4 @@ button.back-to-top:hover {
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
+/* BRI13 min for button */
