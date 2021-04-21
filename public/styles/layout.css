@@ -87,3 +87,7 @@ div.icons {
 div.icons i:hover {
   color: goldenrod;
 }
+
+.test {
+  border: solid 10px pink;
+}
