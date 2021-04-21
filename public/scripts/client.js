@@ -7,47 +7,8 @@
 
 $(document).ready(function () {
 
-  //   const tweetData =  {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png",
-  //         "handle": "@SirIsaac"
-  //       },
-  //     "content": {
-  //         "text": "If I have seen further it is by standing on the shoulders of giants"
-  //       },
-  //     "created_at": 1461116232227
-  //  }
-
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
-
-
   createTweetElement = (tweetData) => {
-    //$ means it's a jquery-constructed object
+  
     let date = timeago.format(tweetData.created_at);
     let $tweet = $(
       `<article class="tweet">
@@ -71,11 +32,8 @@ $(document).ready(function () {
       </footer>
       </article>`);
     return $tweet;
-    //could do with making children and then adding them to article too
-
   };
-  // const $tweet = createTweetElement(tweetData);
-
+  
   const renderTweets = (tweets) => {
     const tweetsContainer = $("#tweet-container");
     for (const tweet of tweets) {
@@ -92,7 +50,8 @@ $(document).ready(function () {
       data: serializedFormData,
       method: 'POST'
     })
-      .then(function (data) {
+    //do i need data parameter?
+      .then(function () {
         console.log('this data sent:', serializedFormData)
       })
       .catch(function (error) {
@@ -100,18 +59,21 @@ $(document).ready(function () {
       })
   });
 
+  const loadTweets = function () {
+    $.ajax('/tweets', {
+      data: 'text',
+      method: 'GET'
+    })
+      .then(function(formData) {
+        renderTweets(formData)
+      })
+      .catch(function (error) {
+        console.log('this was the error:', error);
+      })
+  };
+  loadTweets()
 
 
-
-  // Test / driver code (temporary)
-  // console.log($tweet); // to see what it looks like
-  // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-  renderTweets(data);
-
-  //function to display tweet time// BRI-NOT SUPPOSED TO BE IN HERE? MESSED UP MY AMEND WHEN THIS WAS AT THE TOP OF THIS DOC. PROBLEM-not working
-  timeago.render(document.querySelectorAll(".time-ago-formatted"));
-  // timeago.format($(".time-ago-formatted").html());
-  // $("time-ago-formatted").timeago();
 
 
   //stretch slide down--why do i need a button?
