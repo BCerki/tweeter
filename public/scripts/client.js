@@ -4,25 +4,51 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-//function to display tweet time//
+
 $(document).ready(function () {
+
+  //function to display tweet time//
   timeago.render(document.querySelectorAll(".time-ago-formatted"));
   // timeago.format($(".time-ago-formatted").html());
   // $("time-ago-formatted").timeago();
 
-});
 
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
-}
+//   const tweetData =  {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png",
+//         "handle": "@SirIsaac"
+//       },
+//     "content": {
+//         "text": "If I have seen further it is by standing on the shoulders of giants"
+//       },
+//     "created_at": 1461116232227
+//  }
+
+  const data = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
+        "handle": "@SirIsaac"
+      },
+      "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+      "created_at": 1461116232227
+    },
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ]
 
 
 createTweetElement = function (tweetData) {
@@ -47,15 +73,21 @@ createTweetElement = function (tweetData) {
     return $tweet;
 
 };
-const $tweet = createTweetElement(tweetData);
+// const $tweet = createTweetElement(tweetData);
 
 const renderTweets = function (arrayOfTweetObjects) {
   for (const tweet of arrayOfTweetObjects) {
-    $("#tweet-container").append(createTweetElement(tweet));
+    let currentTweetObject = createTweetElement(tweet);
+    // console.log(currentTweetObject);
+    $("#tweet-container").append(currentTweetObject);
+
   }
 };
 
 
 // Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
+// console.log($tweet); // to see what it looks like
 // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+renderTweets(data);
+
+});
