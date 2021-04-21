@@ -94,6 +94,7 @@ div.icons i:hover {
 }
 
 button.back-to-top {
+  border: none;
   position: fixed;
   bottom: 0;
   right:0;
