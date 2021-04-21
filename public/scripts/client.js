@@ -84,13 +84,29 @@ $(document).ready(function () {
     }
   };
 
+  $("form").submit(function(event){
+    event.preventDefault()
+    const serializedFormData = $("form").serialize();
+    $.ajax('/tweets', {
+      data: serializedFormData,
+      method: 'POST'})
+      .then(function (data) {
+        console.log('this data sent:',serializedFormData)
+      })
+      .catch(function (error) {
+        console.log('this was the error:',error);
+      })
+  });
+
+
+  
 
   // Test / driver code (temporary)
   // console.log($tweet); // to see what it looks like
   // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
   renderTweets(data);
 
-  //function to display tweet time// BRI-NOT SUPPOSED TO BE IN HERE? MESSED UP MY AMEND WHEN THIS WAS AT THE TOP OF THIS DOC
+  //function to display tweet time// BRI-NOT SUPPOSED TO BE IN HERE? MESSED UP MY AMEND WHEN THIS WAS AT THE TOP OF THIS DOC. PROBLEM-not working
   timeago.render(document.querySelectorAll(".time-ago-formatted"));
   // timeago.format($(".time-ago-formatted").html());
   // $("time-ago-formatted").timeago();
