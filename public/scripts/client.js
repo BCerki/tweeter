@@ -66,6 +66,7 @@ $(document).ready(function () {
     //do i need data parameter?
       .then(function () {
         console.log('this data sent:', serializedFormData)
+        loadTweets()
       })
       .catch(function (error) {
         console.log('this was the error:', error);
@@ -84,8 +85,8 @@ $(document).ready(function () {
         console.log('this was the error:', error);
       })
   };
+  
   loadTweets()
-
 
 
 
