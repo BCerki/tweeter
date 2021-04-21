@@ -26,7 +26,7 @@ const tweetData = {
 
 
 createTweetElement = function (tweetData) {
-  const $tweet = $(
+  let $tweet = $(
     `<article class="tweet">
       <header>
         <div>
@@ -48,6 +48,13 @@ createTweetElement = function (tweetData) {
 
 };
 const $tweet = createTweetElement(tweetData);
+
+const renderTweets = function (arrayOfTweetObjects) {
+  for (const tweet of arrayOfTweetObjects) {
+    $("#tweet-container").append(createTweetElement(tweet));
+  }
+};
+
 
 // Test / driver code (temporary)
 console.log($tweet); // to see what it looks like
