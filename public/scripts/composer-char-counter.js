@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-  //select the humming about text area
+  //select the humming about text area (I only have one text area, but Compass said be specific, so I've choosen a detailed selector)
   $("section.new-tweet > form textarea").on('input', function () {
 
     //calculate the number of characters remaining
@@ -16,8 +16,5 @@ $(document).ready(function () {
       counter.removeClass('limit');
     }
   });
-
-  //.closest() was an option
-  //ids are good for jquery
 
 });

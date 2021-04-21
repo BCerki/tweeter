@@ -6,7 +6,7 @@
 
 
 $(document).ready(function () {
-
+  //Function to escape user-entered text
   const escape = function (userInput) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(userInput));
@@ -14,7 +14,9 @@ $(document).ready(function () {
   };
 
   createTweetElement = (tweetData) => {
+    //PROBLEM
     let timeAgo = timeago.format(tweetData.created_at);
+    //Create html of a tweet, pulling in values from the tweetData object appropriately
     let $tweet = $(
       `<article class="tweet">
       <header>
@@ -40,75 +42,75 @@ $(document).ready(function () {
   };
 
   const renderTweets = (tweets) => {
-    const tweetsContainer = $("#tweet-container");
     for (const tweet of tweets) {
+      //Loop through each individual tweet object in the database and build html for it
       let currentTweetObject = createTweetElement(tweet);
-      console.log(currentTweetObject);
-      tweetsContainer.append(currentTweetObject);
+      //Add each tweet to the DOM
+      //PROBLEM--out of order
+      $("#tweet-container").append(currentTweetObject);
     }
   };
 
-  //get code review, this is all a bit of a mystery
+  //Initially hide error messages (errors handle in next function)
+  $('div.error').hide()
+
+
+  //PROBLEM get code review, arguments into promises??
   $("form").submit(function (event) {
+    //Turn off submit's default behavior
     event.preventDefault();
+    //Create a convenience variable to hold the entered tweet's text
     const formData = $("textarea").val();
 
+    //If the user tries to submit the tweet and the form is empty, show the error-containing div by sliding it down, and append an error message to the div
     if (formData === '') {
-      $('div.error').empty().show().slideDown().append('Tweet cannot be blank');
-      return;
-    }
-    if (formData.length > 140) {
-      $('div.error').empty().append('Tweet cannot be longer than 140 characters').show().slideDown();
+      $('div.error').slideDown().append('Tweet cannot be blank');
       return;
     }
 
-    const serializedFormData = $("form").serialize();
+    //If the user tries to submit the tweet and it's too long, show the error-containing div by sliding it down, and append an error message to the div
+    if (formData.length > 140) {
+      $('div.error').append('Tweet cannot be longer than 140 characters').show().slideDown();
+      return;
+    }
 
     $.ajax('/tweets', {
+      //Serialize the entered tweet and add it to the config object so it can go into the database
       data: $(this).serialize(),
       method: 'POST'
     })
-      //do i need data parameter?
+      //PROBLEM do i need data parameter?
       .then(function () {
-        $('div.error').hide();
+        //If post is successful, empty (in case there's a new error later) and hide the error div
+        $('div.error').empty().hide();
+        //Clear the form
         $("textarea").val('');
+        //Refetch tweets so the just-submitted tweet is visible
         loadTweets()
       })
       .catch(function (error) {
+        //If post is unsuccessful, log the error message
         console.log('Error:', error);
       })
   });
 
   const loadTweets = function () {
+    //Make get request using ajax
     $.ajax('/tweets', {
       data: 'text',
       method: 'GET'
     })
       .then(function (formData) {
+        //If get is successful, run the renderTweets function to add the just-submitted tweet to the page
         renderTweets(formData)
       })
       .catch(function (error) {
-        console.log('this was the error:', error);
+        //If get is unsuccessful, log the error
+        console.log('Error:', error);
       })
   };
 
-  //they're out of order, does that fix come later?
+  //Display all the existing tweets in the database when the page loads
   loadTweets()
-
-  $('div.error').hide()
-
-  //stretch slide down--why do i need a button?
-  //assuming it's supposed to start hidden
-  $("section.new-tweet").hide();
-  //toggle between visible and not visible on each click
-  $('div.write-a-new-tweet').click(function () {
-    $("section.new-tweet").slideToggle("slow")
-    //if the form is becoming visible, put the cursor in the textarea so the user can immediately type BRI-HOW TO TELL IF THIS IS ACTUALLY WORKING? IT LOOKS LIKE IT MIGHT GO THERE ON EVERY TOGGLE
-    if ($("section.new-tweet").is(":visible")) {
-      $("textarea").focus()
-    };
-  });
-
-
 
 });
