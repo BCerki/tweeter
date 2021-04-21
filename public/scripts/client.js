@@ -48,6 +48,7 @@ $(document).ready(function () {
 
   createTweetElement = (tweetData) => {
     //$ means it's a jquery-constructed object
+    let date = timeago.format(tweetData.created_at);
     let $tweet = $(
       `<article class="tweet">
       <header>
@@ -61,7 +62,7 @@ $(document).ready(function () {
       </header>
       <div class="tweet-content">${tweetData.content.text}</div>
       <footer>
-        <div class="time-ago-formatted">${tweetData.created_at}</div>
+        <div class="time-ago-formatted">${date}</div>
         <div class="icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -84,22 +85,23 @@ $(document).ready(function () {
     }
   };
 
-  $("form").submit(function(event){
+  $("form").submit(function (event) {
     event.preventDefault()
     const serializedFormData = $("form").serialize();
     $.ajax('/tweets', {
       data: serializedFormData,
-      method: 'POST'})
+      method: 'POST'
+    })
       .then(function (data) {
-        console.log('this data sent:',serializedFormData)
+        console.log('this data sent:', serializedFormData)
       })
       .catch(function (error) {
-        console.log('this was the error:',error);
+        console.log('this was the error:', error);
       })
   });
 
 
-  
+
 
   // Test / driver code (temporary)
   // console.log($tweet); // to see what it looks like
