@@ -88,6 +88,13 @@ div.icons i:hover {
   color: goldenrod;
 }
 
+div.error {
+  color: red;
+  text-align: center;
+  font-size: 1em;
+  border: solid 2px red;
+};
+
 /* BRI delete later */
 .test {
   border: solid 10px pink;

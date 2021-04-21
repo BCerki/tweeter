@@ -7,8 +7,13 @@
 
 $(document).ready(function () {
 
+  const escape = function (userInput) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(userInput));
+    return div.innerHTML;
+  };
+
   createTweetElement = (tweetData) => {
-  
     let timeAgo = timeago.format(tweetData.created_at);
     let $tweet = $(
       `<article class="tweet">
@@ -21,7 +26,7 @@ $(document).ready(function () {
         </div>
         <div class="handle">${tweetData.user.handle}</div>
       </header>
-      <div class="tweet-content">${tweetData.content.text}</div>
+      <div class="tweet-content">${escape(tweetData.content.text)}</div>
       <footer>
         <div class="time-ago-formatted">${timeAgo}</div>
         <div class="icons">
@@ -33,7 +38,7 @@ $(document).ready(function () {
       </article>`);
     return $tweet;
   };
-  
+
   const renderTweets = (tweets) => {
     const tweetsContainer = $("#tweet-container");
     for (const tweet of tweets) {
@@ -47,30 +52,30 @@ $(document).ready(function () {
   $("form").submit(function (event) {
     event.preventDefault();
     const formData = $("textarea").val();
-    
-    if (formData === ''){
-      alert('Tweet cannot be blank');
+
+    if (formData === '') {
+      $('div.error').empty().show().slideDown().append('Tweet cannot be blank');
       return;
     }
     if (formData.length > 140) {
-      alert('Tweet cannot be longer than 140 characters');
+      $('div.error').empty().append('Tweet cannot be longer than 140 characters').show().slideDown();
       return;
     }
 
     const serializedFormData = $("form").serialize();
-    
+
     $.ajax('/tweets', {
       data: $(this).serialize(),
       method: 'POST'
     })
-    //do i need data parameter?
+      //do i need data parameter?
       .then(function () {
-        console.log('this data sent:', serializedFormData)
+        $('div.error').hide();
         $("textarea").val('');
         loadTweets()
       })
       .catch(function (error) {
-        console.log('this was the error:', error);
+        console.log('Error:', error);
       })
   });
 
@@ -79,17 +84,18 @@ $(document).ready(function () {
       data: 'text',
       method: 'GET'
     })
-      .then(function(formData) {
+      .then(function (formData) {
         renderTweets(formData)
       })
       .catch(function (error) {
         console.log('this was the error:', error);
       })
   };
-  
+
+  //they're out of order, does that fix come later?
   loadTweets()
 
-
+  $('div.error').hide()
 
   //stretch slide down--why do i need a button?
   //assuming it's supposed to start hidden
