@@ -7,10 +7,7 @@
 
 $(document).ready(function () {
 
-  //function to display tweet time//
-  timeago.render(document.querySelectorAll(".time-ago-formatted"));
-  // timeago.format($(".time-ago-formatted").html());
-  // $("time-ago-formatted").timeago();
+  
 
 
 //   const tweetData =  {
@@ -89,5 +86,10 @@ const renderTweets = function (arrayOfTweetObjects) {
 // console.log($tweet); // to see what it looks like
 // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 renderTweets(data);
+
+//function to display tweet time// BRI-NOT SUPPOSED TO BE IN HERE? MESSED UP MY AMEND WHEN THIS WAS AT THE TOP OF THIS DOC
+timeago.render(document.querySelectorAll(".time-ago-formatted"));
+// timeago.format($(".time-ago-formatted").html());
+// $("time-ago-formatted").timeago();
 
 });
