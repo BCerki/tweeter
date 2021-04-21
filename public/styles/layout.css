@@ -91,3 +91,26 @@ div.icons i:hover {
 .test {
   border: solid 10px pink;
 }
+
+button.back-to-top {
+  position: fixed;
+  bottom: 0;
+  right:0;
+  margin: 1em;
+  color:white;
+  font-size: 1.25em;
+  background-color: red;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+@keyframes bounce {
+  0%,100% {transform: translateY(0px);}
+  50% {transform: translateY(10px);}
+}
+button.back-to-top:hover {
+  animation-name: bounce;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
