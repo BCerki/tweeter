@@ -53,7 +53,10 @@ createTweetElement = function (tweetData) {
     `<article class="tweet">
       <header>
         <div>
-          <span><img src="${tweetData.user.avatars}">${tweetData.user.name}</span>
+          <img class="avatar" src="${tweetData.user.avatars}">
+        </div>
+        <div>
+           ${tweetData.user.name}</span>
         </div>
         <div class="handle">${tweetData.user.handle}</div>
       </header>

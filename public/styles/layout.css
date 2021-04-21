@@ -32,6 +32,10 @@ main {
 }
 
 /* individual tweet styles */
+#tweet-container article {
+  margin: 2em 0;
+}
+
 article.tweet{
   border: solid 4px black;
   padding: 0.5em;
@@ -45,12 +49,17 @@ article.tweet:hover {
 article.tweet header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 0.5em;;
+  align-items: center;
+  padding: 0 0.5em;
+}
+
+.avatar {
+  padding-right: 0.5em;
 }
 
 div.handle {
   color: lightsteelblue;
+  margin-left: auto;
 }
 
 /* individual tweet content styles */
