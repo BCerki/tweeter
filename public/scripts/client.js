@@ -45,7 +45,8 @@ $(document).ready(function () {
   ]
 
 
-createTweetElement = function (tweetData) {
+createTweetElement = (tweetData) => {
+  //$ means it's a jquery-constructed object
   let $tweet = $(
     `<article class="tweet">
       <header>
@@ -68,16 +69,17 @@ createTweetElement = function (tweetData) {
       </footer>
       </article>`);
     return $tweet;
+    //could do with making children and then adding them to article too
 
 };
 // const $tweet = createTweetElement(tweetData);
 
-const renderTweets = function (arrayOfTweetObjects) {
-  for (const tweet of arrayOfTweetObjects) {
+const renderTweets = (tweets) => {
+  const tweetsContainer = $("#tweet-container");
+  for (const tweet of tweets) {
     let currentTweetObject = createTweetElement(tweet);
-    // console.log(currentTweetObject);
-    $("#tweet-container").append(currentTweetObject);
-
+    console.log(currentTweetObject);
+    tweetsContainer.append(currentTweetObject);
   }
 };
 
