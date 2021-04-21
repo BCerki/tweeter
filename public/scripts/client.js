@@ -9,7 +9,7 @@ $(document).ready(function () {
 
   createTweetElement = (tweetData) => {
   
-    let date = timeago.format(tweetData.created_at);
+    let timeAgo = timeago.format(tweetData.created_at);
     let $tweet = $(
       `<article class="tweet">
       <header>
@@ -23,7 +23,7 @@ $(document).ready(function () {
       </header>
       <div class="tweet-content">${tweetData.content.text}</div>
       <footer>
-        <div class="time-ago-formatted">${date}</div>
+        <div class="time-ago-formatted">${timeAgo}</div>
         <div class="icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -43,11 +43,24 @@ $(document).ready(function () {
     }
   };
 
+  //get code review, this is all a bit of a mystery
   $("form").submit(function (event) {
-    event.preventDefault()
+    event.preventDefault();
+    const formData = $("textarea").val();
+    
+    if (formData === ''){
+      alert('Tweet cannot be blank');
+      return;
+    }
+    if (formData.length > 140) {
+      alert('Tweet cannot be longer than 140 characters');
+      return;
+    }
+
     const serializedFormData = $("form").serialize();
+    
     $.ajax('/tweets', {
-      data: serializedFormData,
+      data: $(this).serialize(),
       method: 'POST'
     })
     //do i need data parameter?
