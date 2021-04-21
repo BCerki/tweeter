@@ -30,13 +30,7 @@ main {
   background-color: #f4f1ec;
   
 }
-/* style for error if submitted tweet doesn't pass validation */
-div.error {
-  color: red;
-  text-align: center;
-  font-size: 1em;
-  border: solid 2px red;
-};
+
 
 /* individual tweet styles */
 #tweet-container article {
@@ -119,3 +113,11 @@ button.back-to-top:hover {
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
+
+/* style for error if submitted tweet doesn't pass validation */
+div.error {
+  color: red;
+  text-align: center;
+  font-size: 1em;
+  border: solid 2px red;
+};

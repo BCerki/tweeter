@@ -14,7 +14,6 @@ $(document).ready(function () {
   };
 
   createTweetElement = (tweetData) => {
-    //PROBLEM
     let timeAgo = timeago.format(tweetData.created_at);
     //Create html of a tweet, pulling in values from the tweetData object appropriately
     let $tweet = $(
