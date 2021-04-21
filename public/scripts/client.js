@@ -66,6 +66,7 @@ $(document).ready(function () {
     //do i need data parameter?
       .then(function () {
         console.log('this data sent:', serializedFormData)
+        $("textarea").val('');
         loadTweets()
       })
       .catch(function (error) {
