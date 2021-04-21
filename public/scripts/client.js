@@ -7,9 +7,6 @@
 
 $(document).ready(function () {
 
-  
-
-
 //   const tweetData =  {
 //     "user": {
 //       "name": "Newton",
@@ -94,5 +91,12 @@ renderTweets(data);
 timeago.render(document.querySelectorAll(".time-ago-formatted"));
 // timeago.format($(".time-ago-formatted").html());
 // $("time-ago-formatted").timeago();
+
+
+//stretch slide down
+$('div.write-a-new-tweet').click(function () {
+  $("section.new-tweet").slideToggle("slow")
+
+});
 
 });

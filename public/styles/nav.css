@@ -28,3 +28,13 @@ span.weight600 {
 .fa-angle-double-down {
   color: red;
 }
+
+@keyframes bounce {
+  0%,100% {transform: translateY(0px);}
+  50% {transform: translateY(10px);}
+}
+.fa-angle-double-down:hover {
+  animation-name: bounce;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
