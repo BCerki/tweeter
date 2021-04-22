@@ -82,7 +82,6 @@ $(document).ready(function () {
       data: $(this).serialize(),
       method: 'POST'
     })
-      //PROBLEM do i need data parameter?
       .then(function () {
         //If post is successful, empty (in case there's a new error later) and hide the error div
         $('div.error').empty().hide();
@@ -105,9 +104,10 @@ $(document).ready(function () {
       data: 'text',
       method: 'GET'
     })
-      .then(function (formData) {
+    //where did this argument come from?
+      .then(function (response) {
         //If get is successful, run the renderTweets function to add the just-submitted tweet to the page
-        renderTweets(formData)
+        renderTweets(response)
       })
       .catch(function (error) {
         //If get is unsuccessful, log the error
