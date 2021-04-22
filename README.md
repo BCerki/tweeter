@@ -11,9 +11,15 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Dependencies
 
-- Express
+- Express ^4.13.4
 - Node 5.10.x or above
+- Body-parser ^1.15.2
+- Chance 1.0.2
+- md5 ^2.1.0
+- nodemon ^1.9.2
 
 ## Screenshots
+![Desktop UI](https://github.com/BCerki/tweeter/blob/master/docs/desktop-ui.png?raw=true)
+![Mobile UI](https://github.com/BCerki/tweeter/blob/master/docs/mobile-ui.png?raw=true)
 ![Compose form with counter](https://github.com/BCerki/tweeter/blob/master/docs/compose-form-and-counter.png?raw=true)
-![Blank compose form and scroll button](https://github.com/BCerki/tweeter/blob/master/docs/scroll-button-and-blank-compose-form.png?raw=true)
+![Scroll button](https://github.com/BCerki/tweeter/blob/master/docs/scroll-button.png?raw=true)
