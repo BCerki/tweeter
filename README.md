@@ -13,3 +13,7 @@ Tweeter is a simple, single-page Twitter clone.
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+![Compose form with counter](https://github.com/BCerki/tweeter/blob/master/docs/compose-form-and-counter.png?raw=true)
+![Blank compose form and scroll button](https://github.com/BCerki/tweeter/blob/master/docs/scroll-button-and-blank-compose-form.png?raw=true)
