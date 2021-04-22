@@ -5,9 +5,9 @@
  */
 
 
-$(document).ready(function() {
+$(document).ready(function () {
   //Function to escape user-entered text
-  const escape = function(userInput) {
+  const escape = function (userInput) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(userInput));
     return div.innerHTML;
@@ -42,7 +42,7 @@ $(document).ready(function() {
   };
 
   const renderTweets = (tweetData) => {
-  
+
     for (const tweet of tweetData) {
       //Loop through each individual tweet object in the database and build html for it
       let currentTweet = createTweetElement(tweet);
@@ -54,7 +54,7 @@ $(document).ready(function() {
   //Initially hide error messages (errors handle in next function)
   $('div.error').hide();
 
-  $("form").submit(function(event) {
+  $("form").submit(function (event) {
     //Turn off submit's default behavior
     event.preventDefault();
     //Create a convenience variable to hold the entered tweet's text
@@ -77,7 +77,7 @@ $(document).ready(function() {
       data: $(this).serialize(),
       method: 'POST'
     })
-      .then(function() {
+      .then(function () {
         //If post is successful, hide the error div
         $('div.error').hide();
         //Clear the form
@@ -87,27 +87,27 @@ $(document).ready(function() {
         //Refetch tweets so the just-submitted tweet is visible
         loadTweets();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         //If post is unsuccessful, log the error message
         console.log('Error:', error);
       });
   });
 
-  const loadTweets = function() {
-    
-   
+  const loadTweets = function () {
+
+
     //Make get request using ajax
     $.ajax('/tweets', {
       data: 'text',
       method: 'GET'
     })
-      .then(function(response) {
+      .then(function (response) {
         //Empty the tweet-container to get rid of everything on the page so that when loadTweets is called multiple times, it doesn't duplicate (triplicate, etc.) the tweet list. Called here so that we have the promise response before anything gets cleared.
         $('#tweet-container').empty();
         //If get is successful, run the renderTweets function to add the just-submitted tweet to the page
         renderTweets(response);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         //If get is unsuccessful, log the error
         console.log('Error:', error);
       });

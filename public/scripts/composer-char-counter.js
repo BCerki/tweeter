@@ -1,7 +1,7 @@
 
-$(document).ready(function() {
+$(document).ready(function () {
   //select the humming about text area (I only have one text area, but Compass said be specific, so I've choosen a detailed selector)
-  $("section.new-tweet > form textarea").on('input', function() {
+  $("section.new-tweet > form textarea").on('input', function () {
 
     //calculate the number of characters remaining
     const counterNumber = 140 - $(this).val().length;
