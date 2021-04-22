@@ -5,15 +5,15 @@
  */
 
 
-$(document).ready(function () {
+$(document).ready(function() {
   //Function to escape user-entered text
-  const escape = function (userInput) {
+  const escape = function(userInput) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(userInput));
     return div.innerHTML;
   };
 
-  createTweetElement = (tweetData) => {
+  const createTweetElement = (tweetData) => {
     //Use timeago to change object's time to human-readable "xx amount of time ago"
     let timeAgo = timeago.format(tweetData.created_at);
     //Create html of a tweet, pulling in values from the tweetData object appropriately
@@ -52,9 +52,9 @@ $(document).ready(function () {
   };
 
   //Initially hide error messages (errors handle in next function)
-  $('div.error').hide()
+  $('div.error').hide();
 
-  $("form").submit(function (event) {
+  $("form").submit(function(event) {
     //Turn off submit's default behavior
     event.preventDefault();
     //Create a convenience variable to hold the entered tweet's text
@@ -77,7 +77,7 @@ $(document).ready(function () {
       data: $(this).serialize(),
       method: 'POST'
     })
-      .then(function () {
+      .then(function() {
         //If post is successful, hide the error div
         $('div.error').hide();
         //Clear the form
@@ -85,15 +85,15 @@ $(document).ready(function () {
         //Reset the counter
         $("output.counter").html('140');
         //Refetch tweets so the just-submitted tweet is visible
-        loadTweets()
+        loadTweets();
       })
-      .catch(function (error) {
+      .catch(function(error) {
         //If post is unsuccessful, log the error message
         console.log('Error:', error);
-      })
+      });
   });
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     //Empty the tweet-container to get rid of everything on the page so that when loadTweets is called multiple times, it doesn't duplicate (triplicate, etc.) the tweet list
     $('#tweet-container').empty();
     //Make get request using ajax
@@ -101,17 +101,17 @@ $(document).ready(function () {
       data: 'text',
       method: 'GET'
     })
-      .then(function (response) {
+      .then(function(response) {
         //If get is successful, run the renderTweets function to add the just-submitted tweet to the page
-        renderTweets(response)
+        renderTweets(response);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         //If get is unsuccessful, log the error
         console.log('Error:', error);
-      })
+      });
   };
 
   //Display all the existing tweets in the database when the page loads
-  loadTweets()
+  loadTweets();
 
 });
