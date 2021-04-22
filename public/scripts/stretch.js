@@ -5,7 +5,7 @@ $(document).ready(function() {
   //Initially display the page with the "Compose" section hidden (inferring this is what Compass wants)
   $("section.new-tweet").hide();
   //Toggle between "Compose" being visible and not visible on each click
-  $('div.write-a-new-tweet').click(function() {
+  $('button.write-a-new-tweet').click(function() {
     $("section.new-tweet").slideToggle("slow");
     //If the form is becoming visible, put the cursor in the textarea so the user can immediately type
     if ($(this).is(":visible")) {
@@ -35,9 +35,11 @@ $(document).ready(function() {
     $("section.new-tweet").slideDown("slow");
     if ($(this).is(":visible")) {
       $("textarea").focus();
+    } else {
+      $("textarea").blur();
     }
     //Hide the "Write new tweet" "button"
-    $('div.write-a-new-tweet').hide();
+    $('button.write-a-new-tweet').hide();
   });
 
 });

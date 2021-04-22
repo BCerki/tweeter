@@ -94,14 +94,16 @@ $(document).ready(function() {
   });
 
   const loadTweets = function() {
-    //Empty the tweet-container to get rid of everything on the page so that when loadTweets is called multiple times, it doesn't duplicate (triplicate, etc.) the tweet list
-    $('#tweet-container').empty();
+    
+   
     //Make get request using ajax
     $.ajax('/tweets', {
       data: 'text',
       method: 'GET'
     })
       .then(function(response) {
+        //Empty the tweet-container to get rid of everything on the page so that when loadTweets is called multiple times, it doesn't duplicate (triplicate, etc.) the tweet list. Called here so that we have the promise response before anything gets cleared.
+        $('#tweet-container').empty();
         //If get is successful, run the renderTweets function to add the just-submitted tweet to the page
         renderTweets(response);
       })
