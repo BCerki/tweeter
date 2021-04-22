@@ -40,14 +40,25 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  const renderTweets = (tweets) => {
-    for (const tweet of tweets) {
+  const renderTweets = (tweetData) => {
+    
+    const sortedTweetData = tweetData.sort((a, b) => {
+      if (a.created_at < b.created_at) {
+        return -1;
+      }
+      if (a.created_at > b.created_at) {
+        return 1;
+      }
+      return 0;
+    });
+    for (const tweet of sortedTweetData) {
       //Loop through each individual tweet object in the database and build html for it
-      let currentTweetObject = createTweetElement(tweet);
+      let currentTweet = createTweetElement(tweet);
       //Add each tweet to the DOM
-      //PROBLEM--out of order
-      $("#tweet-container").append(currentTweetObject);
+      $("#tweet-container").append(currentTweet);
     }
+
+
   };
 
   //Initially hide error messages (errors handle in next function)
@@ -84,6 +95,8 @@ $(document).ready(function () {
         $('div.error').empty().hide();
         //Clear the form
         $("textarea").val('');
+        //Reset the counter
+        $("output.counter").html('140');
         //Refetch tweets so the just-submitted tweet is visible
         loadTweets()
       })
