@@ -11,7 +11,6 @@ nav {
   padding: 0 1.5em;
   position: sticky;
   top: 0;
-
 }
 
 div.logo {
@@ -28,7 +27,7 @@ span.weight600 {
   font-weight: 600;
 }
 
-/* write new tweet "button" (not a real button) styles */
+/* write new tweet "button" (not a real button) PROBLEM styles */
 .fa-angle-double-down {
   color: red;
 }

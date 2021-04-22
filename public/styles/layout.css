@@ -28,7 +28,6 @@ main {
   width: 90%;
   margin: auto;
   background-color: #f4f1ec;
-  
 }
 
 
@@ -115,10 +114,3 @@ button.back-to-top:hover {
   animation-iteration-count: infinite;
 }
 
-/* style for error if submitted tweet doesn't pass validation */
-div.error {
-  color: red;
-  text-align: center;
-  font-size: 1em;
-  border: solid 2px red;
-};
