@@ -60,15 +60,15 @@ $(document).ready(function () {
     //Create a convenience variable to hold the entered tweet's text
     const formData = $("textarea").val();
 
-    //If the user tries to submit the tweet and the form is empty, show the error-containing div by sliding it down, and append an error message to the div
+    //If the user tries to submit the tweet and the form is empty, empty the error-containing div (in case it already had an error), show the error-containing div by sliding it down, and append an error message to the div
     if (formData === '') {
-      $('div.error').slideDown().append('❌ Tweet cannot be blank');
+      $('div.error').empty().slideDown(0).append('❌ Tweet cannot be blank');
       return;
     }
 
-    //If the user tries to submit the tweet and it's too long, show the error-containing div by sliding it down, and append an error message to the div
+    //If the user tries to submit the tweet and it's too long, empty the error-containing div (in case it already had an error), show the error-containing div by sliding it down, and append an error message to the div
     if (formData.length > 140) {
-      $('div.error').append('❌ Tweet cannot be longer than 140 characters').show().slideDown();
+      $('div.error').empty().slideDown(0).append('❌ Tweet cannot be longer than 140 characters');
       return;
     }
 
@@ -78,8 +78,8 @@ $(document).ready(function () {
       method: 'POST'
     })
       .then(function () {
-        //If post is successful, empty (in case there's a new error later) and hide the error div
-        $('div.error').empty().hide();
+        //If post is successful, hide the error div
+        $('div.error').hide();
         //Clear the form
         $("textarea").val('');
         //Reset the counter
