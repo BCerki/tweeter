@@ -33,7 +33,7 @@ main {
 
 /* individual tweet styles */
 #tweet-container article {
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 article.tweet{
