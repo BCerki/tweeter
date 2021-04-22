@@ -14,6 +14,7 @@ $(document).ready(function () {
   };
 
   createTweetElement = (tweetData) => {
+    //Use timeago to change object's time to human-readable "xx amount of time ago"
     let timeAgo = timeago.format(tweetData.created_at);
     //Create html of a tweet, pulling in values from the tweetData object appropriately
     let $tweet = $(
@@ -41,24 +42,18 @@ $(document).ready(function () {
   };
 
   const renderTweets = (tweetData) => {
-    // Tweets go into tweetData in the order they were created, so create a variable that holds them in reverse order so later they can be displayed in reverse chronological order
-    const orderedTweetData = tweetData.reverse();
-
-    for (const tweet of orderedTweetData) {
+  
+    for (const tweet of tweetData) {
       //Loop through each individual tweet object in the database and build html for it
       let currentTweet = createTweetElement(tweet);
-      //Add each tweet to the DOM
-      $("#tweet-container").append(currentTweet);
+      //Add each tweet to the top of the tweet container. Since they're in the database in chronological order, this will order them with the most recent on top
+      $("#tweet-container").prepend(currentTweet);
     }
-
-
   };
 
   //Initially hide error messages (errors handle in next function)
   $('div.error').hide()
 
-
-  //PROBLEM get code review, arguments into promises??
   $("form").submit(function (event) {
     //Turn off submit's default behavior
     event.preventDefault();
@@ -99,12 +94,13 @@ $(document).ready(function () {
   });
 
   const loadTweets = function () {
+    //Empty the tweet-container to get rid of everything on the page so that when loadTweets is called multiple times, it doesn't duplicate (triplicate, etc.) the tweet list
+    $('#tweet-container').empty();
     //Make get request using ajax
     $.ajax('/tweets', {
       data: 'text',
       method: 'GET'
     })
-    //where did this argument come from?
       .then(function (response) {
         //If get is successful, run the renderTweets function to add the just-submitted tweet to the page
         renderTweets(response)
