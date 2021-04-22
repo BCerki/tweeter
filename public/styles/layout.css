@@ -17,7 +17,7 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
+  font-size: 1em;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -99,8 +99,8 @@ button.back-to-top {
   color:white;
   font-size: 1.25em;
   background-color: red;
-  width: 75px;
-  height: 75px;
+  width: 2.5em;
+  height: 2.5em;
   border-radius: 50%;
 }
 
@@ -114,27 +114,21 @@ button.back-to-top:hover {
   animation-iteration-count: infinite;
 }
 
-/* responsive design styles */
-/* Remember to use the Developer Tools as part of your workflow.
-Resize your browser to determine the reasonable breakpoints you might use based on how your content looks.
-A typical breakpoint to consider for desktop is 1024px and above.
-Tablets are commonly between 768px to 1024px.
-If you use more than one breakpoint, be aware of the cascading effects of your css.
-How could the flex-direction property be useful here?
-Consider what responsive design pattern the above desktop design might use. Perhaps Layout Shifter?
-Get creative with other screen sizes - tablets? Large desktops?
-Have fun :) Lots! */
+/* Responsive design for screens greater than 1024px (design for smaller screens is already covered above */
 
 @media only screen and (min-width: 1024px) {
   div.media-query {
     display: flex;
     flex-direction: row;
   }
+  body {
+    font-size: 1.25rem;
+  }
   header.user {
-    margin: 3em;
+    margin: 3vw;
   }
   main {
-    margin: 3em;
+    margin: 3vw;
   }
 
 }
