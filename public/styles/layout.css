@@ -68,6 +68,7 @@ div.handle {
   font-weight: 600;
   padding: 1em 0.5em;;
   border-bottom: solid 4px black;
+  word-wrap: break-word;
 }
 
 /* individual tweet footer styles */
