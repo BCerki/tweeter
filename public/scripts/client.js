@@ -62,13 +62,13 @@ $(document).ready(function () {
 
     //If the user tries to submit the tweet and the form is empty, show the error-containing div by sliding it down, and append an error message to the div
     if (formData === '') {
-      $('div.error').slideDown().append('Tweet cannot be blank');
+      $('div.error').slideDown().append('❌ Tweet cannot be blank');
       return;
     }
 
     //If the user tries to submit the tweet and it's too long, show the error-containing div by sliding it down, and append an error message to the div
     if (formData.length > 140) {
-      $('div.error').append('Tweet cannot be longer than 140 characters').show().slideDown();
+      $('div.error').append('❌ Tweet cannot be longer than 140 characters').show().slideDown();
       return;
     }
 

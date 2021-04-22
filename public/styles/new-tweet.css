@@ -37,3 +37,12 @@ button.post-new-tweet {
 .limit {
   color: red;
 }
+
+/* style for error if submitted tweet doesn't pass validation */
+div.error {
+  color: red;
+  text-align: center;
+  font-size: 1em;
+  border: solid 2px red;
+  margin-bottom: 0.5em;
+};
