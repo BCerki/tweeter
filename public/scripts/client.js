@@ -41,17 +41,10 @@ $(document).ready(function () {
   };
 
   const renderTweets = (tweetData) => {
-    
-    const sortedTweetData = tweetData.sort((a, b) => {
-      if (a.created_at < b.created_at) {
-        return -1;
-      }
-      if (a.created_at > b.created_at) {
-        return 1;
-      }
-      return 0;
-    });
-    for (const tweet of sortedTweetData) {
+    // Tweets go into tweetData in the order they were created, so create a variable that holds them in reverse order so later they can be displayed in reverse chronological order
+    const orderedTweetData = tweetData.reverse();
+
+    for (const tweet of orderedTweetData) {
       //Loop through each individual tweet object in the database and build html for it
       let currentTweet = createTweetElement(tweet);
       //Add each tweet to the DOM
