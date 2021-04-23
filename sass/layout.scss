@@ -1,0 +1,134 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+main {
+  width: 90%;
+  margin: auto;
+  background-color: #f4f1ec;
+}
+
+
+/* individual tweet styles */
+#tweet-container article {
+  margin-bottom: 1.5em;
+}
+
+article.tweet{
+  border: solid 4px black;
+  padding: 0.5em;
+}
+
+article.tweet:hover {
+  box-shadow: 5px 5px lightsteelblue;
+}
+
+/* individual tweet header styles */
+article.tweet header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 0.5em;
+}
+
+img.avatar {
+  padding-right: 0.5em;
+}
+
+div.handle {
+  color: lightsteelblue;
+  margin-left: auto;
+}
+
+/* individual tweet content styles */
+.tweet-content {
+  font-weight: 600;
+  padding: 1em 0.5em;;
+  border-bottom: solid 4px black;
+  word-wrap: break-word;
+}
+
+/* individual tweet footer styles */
+article.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 0.25em;
+}
+
+div.time-ago-formatted {
+  font-size: 0.75em;;
+}
+div.icons {
+  color: navy;
+  font-size: 0.75em;
+}
+div.icons i:hover {
+  color: goldenrod;
+}
+
+/* styles for back-to-top button */
+button.back-to-top {
+  border: none;
+  position: fixed;
+  bottom: 0;
+  right:0;
+  margin: 1em;
+  color:white;
+  font-size: 1.25em;
+  background-color: red;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+}
+
+@keyframes bounce {
+  0%,100% {transform: translateY(0px);}
+  50% {transform: translateY(10px);}
+}
+button.back-to-top:hover {
+  animation-name: bounce;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+/* Responsive design for screens greater than 1024px (design for smaller screens is already covered above */
+
+@media only screen and (min-width: 1024px) {
+  div.media-query {
+    display: flex;
+    flex-direction: row;
+  }
+  body {
+    font-size: 1.25rem;
+  }
+  header.user {
+    margin: 3vw;
+  }
+  main {
+    margin: 3vw;
+  }
+
+}
