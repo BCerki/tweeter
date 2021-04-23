@@ -1,3 +1,5 @@
+@import 'variables';
+
 header.user {
   height: 400px;
   width: 100%;
@@ -6,7 +8,7 @@ header.user {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ff0000;
+  background-color: $primary-color;
   background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
 
 }

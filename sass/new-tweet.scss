@@ -1,46 +1,41 @@
+@import 'variables';
 /* text area styles */
 textarea {
   background-color: transparent;
   border: none;
   width: 100%;
 }
-
-::placeholder {
-  font-weight: 600;
-}
+  ::placeholder {
+    font-weight: 600;
+  }
 
 /* styles for button and counter section */
 div.submission {
-  display: flex;
-  flex-direction: row;
+  @extend %flex-row;
   justify-content: space-between;
   padding: 1em 0;
   border-top:solid 4px black;
 }
-
-button.post-new-tweet {
-  background-color: #4056A1;
-  border: none;
-  color: white;
-  font-family: "Bungee";
-  font-size: 0.75em;
-}
-
-/* counter styles */
-.counter {
-  font-family: "Bungee";
-  font-size: 0.75em;
-}
-
-.limit {
-  color: red;
-}
+  .post-new-tweet {
+    background-color: #4056A1;
+    border: none;
+    color: white;
+    font-family: $accent-font;
+    font-size: 0.75em;
+  }
+  .counter {
+    font-family: $accent-font;
+    font-size: 0.75em;
+  }
+  .limit {
+    color: $error-color;
+  }
 
 /* style for error if submitted tweet doesn't pass validation */
 div.error {
-  color: red;
+  color: $error-color;
   text-align: center;
   font-size: 1em;
-  border: solid 2px red;
+  border: solid 2px $error-color;
   margin-bottom: 0.5em;
 };

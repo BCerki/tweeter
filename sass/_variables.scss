@@ -1,0 +1,16 @@
+//colors
+$primary-color: #ff0000;
+$error-color: red;
+$nav-color: #4056A1;
+$background-color: #f4f1ec;
+$accent-color: lightsteelblue;
+
+//fonts
+$body-font: 'Source Sans Pro', sans-serif;
+$accent-font: "Bungee", sans-serif;
+
+//placeholder classes
+%flex-row {
+  display: flex;
+  flex-direction: row;
+}

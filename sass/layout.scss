@@ -1,3 +1,4 @@
+@import 'variables';
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
@@ -16,9 +17,9 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: $background-color;
   font-size: 1em;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: $body-font
 }
 
 /*
@@ -27,7 +28,7 @@ body {
 main {
   width: 90%;
   margin: auto;
-  background-color: #f4f1ec;
+  background-color: $background-color;
 }
 
 
@@ -35,32 +36,28 @@ main {
 #tweet-container article {
   margin-bottom: 1.5em;
 }
-
-article.tweet{
-  border: solid 4px black;
-  padding: 0.5em;
-}
-
-article.tweet:hover {
-  box-shadow: 5px 5px lightsteelblue;
-}
+  .tweet{
+    border: solid 4px black;
+    padding: 0.5em;
+  }
+    
+  .tweet:hover {
+    box-shadow: 5px 5px $accent-color;
+  }
 
 /* individual tweet header styles */
-article.tweet header {
-  display: flex;
-  flex-direction: row;
+.tweet header {
+  @extend %flex-row;
   align-items: center;
   padding: 0 0.5em;
 }
-
-img.avatar {
-  padding-right: 0.5em;
-}
-
-div.handle {
-  color: lightsteelblue;
-  margin-left: auto;
-}
+  .handle {
+    color: $accent-color;
+    margin-left: auto;
+    }
+  .avatar {
+    padding-right: 0.5em;
+  }
 
 /* individual tweet content styles */
 .tweet-content {
@@ -72,22 +69,20 @@ div.handle {
 
 /* individual tweet footer styles */
 article.tweet footer {
-  display: flex;
-  flex-direction: row;
+  @extend %flex-row;
   justify-content: space-between;
   padding-top: 0.25em;
 }
-
-div.time-ago-formatted {
-  font-size: 0.75em;;
-}
-div.icons {
-  color: navy;
-  font-size: 0.75em;
-}
-div.icons i:hover {
-  color: goldenrod;
-}
+  .time-ago-formatted {
+    font-size: 0.75em;;
+  }
+  .icons {
+    color: navy;
+    font-size: 0.75em;
+  }
+    i:hover {
+      color: goldenrod;
+    }
 
 /* styles for back-to-top button */
 button.back-to-top {
@@ -98,7 +93,7 @@ button.back-to-top {
   margin: 1em;
   color:white;
   font-size: 1.25em;
-  background-color: red;
+  background-color: $primary-color;
   width: 2.5em;
   height: 2.5em;
   border-radius: 50%;
@@ -130,5 +125,4 @@ button.back-to-top:hover {
   main {
     margin: 3vw;
   }
-
 }

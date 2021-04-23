@@ -1,3 +1,10 @@
+@import 'variables';
+
+//animation for later
+@keyframes bounce {
+  0%,100% {transform: translateY(0px);}
+  50% {transform: translateY(10px);}
+}
 
 /* styles for whole nav bar */
 nav {
@@ -6,44 +13,36 @@ nav {
   align-items: center; 
   height: 120px;
   width: 100%;
-  background-color: pink;
+  background-color: $nav-color;
   color: white;
   padding: 0 1.5em;
   position: sticky;
   top: 0;
 }
-
-div.logo {
-  font-family: "Bungee", sans-serif;
-}
+  .logo {
+    font-family: $accent-font
+  }
 
 /* bold style */
 span.weight600 {
   font-weight: 600;
 }
 
-/* write new tweet "button" (not a real button) PROBLEM styles */
+/* write new tweet button styles */
 button.write-a-new-tweet {
   border: none;
   background-color: transparent;
   color: white;
 }
-
-.fa-angle-double-down {
-  color: red;
-}
-
-span.block-display {
-  display: block;
-}
-
-@keyframes bounce {
-  0%,100% {transform: translateY(0px);}
-  50% {transform: translateY(10px);}
-}
-.fa-angle-double-down:hover {
-  animation-name: bounce;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-}
+  .fa-angle-double-down {
+    color: $primary-color;
+  }
+  .block-display {
+    display: block;
+  }
+  .fa-angle-double-down:hover {
+    animation-name: bounce;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+  }
 
