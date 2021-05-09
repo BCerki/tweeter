@@ -15,7 +15,7 @@ const initialTweetData = [
 
   },
   {
-    name: "Tweet5",
+    name: "Tweet2",
     handle: '@pig2',
     profile_image: 'https://i.imgur.com/nlhLi3I.png',
     text: "tweet text 2",
@@ -25,14 +25,26 @@ const initialTweetData = [
 ]
 
 function App() {
-  const [tweets, setTweetData] = useState(initialTweetData)
-  const tweets = tweetsData.map((element, index) => {
+  const [tweetData, setTweetData] = useState(initialTweetData)
+  const tweets = tweetData.map((element, index) => {
     return <Tweet key={index} name={element.name} handle={element.handle} profile_image={element.profile_image} text={element.text} date={element.date} />
 
   })
 
+  const addNewTweet = () => {
+    const newTweet = {
+      name: "Tweet3 from addnewtweet function",
+      handle: '@pig2',
+      profile_image: 'https://i.imgur.com/nlhLi3I.png',
+      text: "Tweet3 from addnewtweet function",
+      date: "10 days ago"
+    }
+
+    setTweetData([newTweet, ...tweetData])
+  }
+
   return (
-    <div className="App">
+    <div className="App" onClick={addNewTweet}>
       <Navigation />
       <div className="media-query">
         <Profile />
