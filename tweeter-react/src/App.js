@@ -31,12 +31,12 @@ function App() {
 
   })
 
-  const addNewTweet = () => {
+  const addNewTweet = text => {
     const newTweet = {
-      name: "Tweet3 from addnewtweet function",
+      name: "AddNewTweet",
       handle: '@pig2',
       profile_image: 'https://i.imgur.com/nlhLi3I.png',
-      text: "Tweet3 from addnewtweet function",
+      text: text,
       date: "10 days ago"
     }
 
@@ -44,12 +44,12 @@ function App() {
   }
 
   return (
-    <div className="App" onClick={addNewTweet}>
+    <div className="App">
       <Navigation />
       <div className="media-query">
         <Profile />
         <main className="container">
-          <TweetForm />
+          <TweetForm addNewTweet={addNewTweet} />
           <section className="tweets">
             {tweets}
           </section>
