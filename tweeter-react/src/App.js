@@ -33,13 +33,15 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <Profile />
-      <main className="container">
-        <TweetForm />
-        <section className="tweets">
-          {tweets}
-        </section>
-      </main>
+      <div className="media-query">
+        <Profile />
+        <main className="container">
+          <TweetForm />
+          <section className="tweets">
+            {tweets}
+          </section>
+        </main>
+      </div>
     </div>
   );
 }

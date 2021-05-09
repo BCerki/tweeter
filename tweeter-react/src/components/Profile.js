@@ -1,9 +1,10 @@
 import React from 'react'
-
+import './Profile.css'
 
 
 export const Profile = () => {
   return (
+
     <header className="user">
       <div>
         <img src="/profile-hex.png" />
@@ -13,5 +14,6 @@ export const Profile = () => {
         <h2>Cynthia Norris</h2>
       </div>
     </header>
+
   )
 }
