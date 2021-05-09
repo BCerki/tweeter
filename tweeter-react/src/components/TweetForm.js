@@ -6,17 +6,17 @@ import './TweetForm.css'
 
 export const TweetForm = () => {
   return (
-    <section class="new-tweet">
+    <section className="new-tweet">
 
-      <div class="error"></div>
+      <div className="error"></div>
 
       <form method="POST" action="/tweets">
 
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
 
-        <div class="submission">
-          <button class="post-new-tweet" type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
+        <div className="submission">
+          <button className="post-new-tweet" type="submit">Tweet</button>
+          <output name="counter" className="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>

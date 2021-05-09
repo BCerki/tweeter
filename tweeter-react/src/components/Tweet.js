@@ -2,25 +2,26 @@ import React from 'react'
 import './Tweet.css'
 
 
-export const Tweet = () => {
+export const Tweet = props => {
+  const { name, handle, text, profile_image, date } = props;
   return (
-    <article class="tweet">
+    <article className="tweet">
       <header>
         <div>
-          <img class="avatar" src="https://i.imgur.com/nlhLi3I.png" />
+          <img className="avatar" src={profile_image} />
         </div>
         <div>
-          Descartes
-    </div>
-        <div class="handle">@rd</div>
+          {name}
+        </div>
+        <div className="handle">{handle}</div>
       </header>
-      <div class="tweet-content">Je pense , donc je suis</div>
+      <div className="tweet-content">{text}</div>
       <footer>
-        <div class="time-ago-formatted">1 day ago</div>
-        <div class="icons">
-          <i class="fas fa-flag"></i>
-          <i class="fas fa-retweet"></i>
-          <i class="fas fa-heart"></i>
+        <div className="time-ago-formatted">{date}</div>
+        <div className="icons">
+          <i className="fas fa-flag"></i>
+          <i className="fas fa-retweet"></i>
+          <i className="fas fa-heart"></i>
         </div>
       </footer>
     </article>)
