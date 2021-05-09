@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import { Navigation } from './components/Navigation'
 import { Profile } from './components/Profile'
 import { Tweet } from './components/Tweet'
 import { TweetForm } from './components/TweetForm'
 
-const tweetsData = [
+const initialTweetData = [
   {
     name: "Descartes",
     handle: '@pig',
@@ -25,6 +25,7 @@ const tweetsData = [
 ]
 
 function App() {
+  const [tweets, setTweetData] = useState(initialTweetData)
   const tweets = tweetsData.map((element, index) => {
     return <Tweet key={index} name={element.name} handle={element.handle} profile_image={element.profile_image} text={element.text} date={element.date} />
 
