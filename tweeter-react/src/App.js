@@ -15,7 +15,7 @@ const initialTweetData = [
 
   },
   {
-    name: "Tweet2",
+    name: "Tweet5",
     handle: '@pig2',
     profile_image: 'https://i.imgur.com/nlhLi3I.png',
     text: "tweet text 2",
