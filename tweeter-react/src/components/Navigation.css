@@ -1,0 +1,51 @@
+/* styles for whole nav bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  width: 100%;
+  background-color: pink;
+  color: white;
+  padding: 0 1.5em;
+  position: sticky;
+  top: 0;
+}
+
+div.logo {
+  font-family: "Bungee", sans-serif;
+}
+
+/* bold style */
+span.weight600 {
+  font-weight: 600;
+}
+
+/* write new tweet button styles */
+button.write-a-new-tweet {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.fa-angle-double-down {
+  color: red;
+}
+
+span.block-display {
+  display: block;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+.fa-angle-double-down:hover {
+  animation-name: bounce;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
