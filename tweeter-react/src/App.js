@@ -26,10 +26,7 @@ const initialTweetData = [
 
 function App() {
   const [tweetData, setTweetData] = useState(initialTweetData)
-  const tweets = tweetData.map((element, index) => {
-    return <Tweet key={index} name={element.name} handle={element.handle} profile_image={element.profile_image} text={element.text} date={element.date} />
 
-  })
 
   const addNewTweet = text => {
     const newTweet = {
@@ -50,9 +47,7 @@ function App() {
         <Profile />
         <main className="container">
           <TweetForm addNewTweet={addNewTweet} />
-          <section className="tweets">
-            {tweets}
-          </section>
+          <Tweets tweetData={tweetData} />
         </main>
       </div>
     </div>
